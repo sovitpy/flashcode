@@ -28,3 +28,8 @@ const cardSchema = new Schema(
     timestamps: true,
   }
 );
+
+const Card = mongoose.model('cards', cardSchema);
+
+export default Card;
+
