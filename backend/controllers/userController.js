@@ -3,7 +3,10 @@ import User from '../models/userModel.js';
 import { AppError } from '../utils/errorUtils.js';
 
 const getUserData = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.params.id);
+  const user = await User.findById(req.user._id)
+    .populate('solvedCards')
+    .populate('unsolvedCards')
+    .populate('reviewCards');
   if (user) {
     res.json({
       _id: user._id,

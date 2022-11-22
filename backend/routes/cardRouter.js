@@ -1,12 +1,14 @@
 import { Router } from 'express';
+import { isAuthenticated } from '../middlewares/auth.js';
+import {
+  getCards,
+  getCard,
+  createCard,
+} from '../controllers/cardController.js';
 
 const cardRouter = Router();
 
-cardRouter.get('/', (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    message: 'Get All Cards',
-  });
-});
+cardRouter.get('/', getCards);
+cardRouter.post('/', createCard);
 
 export default cardRouter;

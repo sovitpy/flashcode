@@ -4,7 +4,8 @@ import asyncHandler from 'express-async-handler';
 import { AppError } from '../utils/errorUtils.js';
 
 const isAuthenticated = asyncHandler(async (req, res, next) => {
-  const { token } = req.cookies;
+  const { authorization } = req.headers;
+  const token = authorization && authorization.split(' ')[1];
 
   if (!token) {
     throw new AppError(
