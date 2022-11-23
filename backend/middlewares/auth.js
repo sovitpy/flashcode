@@ -14,9 +14,17 @@ const isAuthenticated = asyncHandler(async (req, res, next) => {
     );
   }
 
-  const decodedData = jwt.verify(token, process.env.JWT_SECRET);
-  req.user = await User.findById(decodedData.id);
-  next();
+  const decodedData = jwt.verify(
+    token,
+    process.env.JWT_SECRET,
+    async (err, decodedData) => {
+      if (err) {
+        throw new AppError('Invalid token', 401);
+      }
+      req.user = await User.findById(decodedData.id);
+      next();
+    }
+  );
 });
 
 export { isAuthenticated };

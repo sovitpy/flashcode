@@ -26,10 +26,11 @@ const login = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({
     username,
   });
-  const isValidPassword = await user.comparePassword(password);
   if (!user) {
     next(new AppError('Invalid username', 401));
-  } else if (!isValidPassword) {
+  }
+  const isValidPassword = await user.comparePassword(password);
+  if (!isValidPassword) {
     next(new AppError('Invalid password', 401));
   } else {
     const token = user.generateToken();

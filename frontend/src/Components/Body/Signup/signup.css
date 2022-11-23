@@ -1,0 +1,142 @@
+.user-form__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+.userform__box {
+  width: 28rem;
+}
+
+.result_heading {
+  font-size: 1.3rem;
+  color: white;
+  letter-spacing: 0.5px;
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+}
+
+.restart_btn {
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1.2rem;
+  border: none;
+  padding: 0.7rem 1.7rem;
+  background-color: #4f46e5;
+  color: white;
+  transition: 0.3s all;
+}
+
+.restart_btn:hover {
+  background-color: rgba(78, 70, 229, 0.659);
+}
+
+.user-form__chart {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0rem;
+}
+
+.userform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  box-shadow: 0 0 5px 1px #ec1a3293;
+  border-radius: 1rem;
+  background-color: #1c2125;
+  padding: 3rem;
+}
+
+.userform label {
+  margin-left: 0.2rem;
+  align-self: flex-start;
+  color: #f0f2f5;
+  font-size: 1.2rem;
+}
+
+.userform input {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  height: 2.3rem;
+  color: white;
+  background-color: #22272e;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  transition: all 0.2s;
+}
+
+.userform input:focus {
+  border-bottom: 1px solid #ec1a32;
+  /* box-shadow: 0 1px 1px 1px #4f46e5; */
+}
+
+.submit-button {
+  background-color: #ec1a32;
+  letter-spacing: 0.5px;
+  border: none;
+  color: white;
+  padding: 0.8rem 3rem;
+  text-align: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: all 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #f2001cc3;
+}
+
+.validation-error {
+  color: red;
+  letter-spacing: 0.3px;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.validation-success {
+  color: #4bb543;
+  letter-spacing: 0.3px;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.loader .dotloader {
+  flex-basis: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader h1 {
+  padding-top: 1.2rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.form__heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 0;
+  color: #fff;
+  font-size: 1.5rem;
+}

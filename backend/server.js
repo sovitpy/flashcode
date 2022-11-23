@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import morgan from 'morgan';
 import cardRouter from './routes/cardRouter.js';
 import mongoose from 'mongoose';
 import { AppError, handleError } from './utils/errorUtils.js';
@@ -11,6 +12,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(morgan('dev'));
 
 // Variables
 const PORT = process.env.PORT || 3001;
