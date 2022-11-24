@@ -26,7 +26,21 @@ const Practice = () => {
       .then((res) => {
         if (res.data.status === 'warning') {
           setError(res.data.message);
-          if (user.solvedCards) {
+          if (user.reviewCards.length) {
+            let randomCard =
+              user.reviewCards[
+                Math.floor(Math.random() * user.reviewCards.length)
+              ];
+            randomCard = { ...randomCard, type: '(Reviewing)' };
+            setCard(randomCard);
+          } else if (user.unsolvedCards.length) {
+            let randomCard =
+              user.unsolvedCards[
+                Math.floor(Math.random() * user.unsolvedCards.length)
+              ];
+            randomCard = { ...randomCard, type: '(Unsolved)' };
+            setCard(randomCard);
+          } else if (user.solvedCards.length) {
             let randomCard =
               user.solvedCards[
                 Math.floor(Math.random() * user.solvedCards.length)
@@ -39,7 +53,7 @@ const Practice = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        setError(err);
       });
   };
 
@@ -47,22 +61,22 @@ const Practice = () => {
     const solved = user.solvedCards || [];
     const unsolved = user.unsolvedCards || [];
     const review = user.reviewCards || [];
-    const solvedWeight = 0.5;
-    const unsolvedWeight = 0.3;
-    const reviewWeight = 0.2;
+    const unsolvedWeight = 0.5;
+    const reviewWeight = 0.3;
+    const solvedWeight = 0.2;
     const totalWeight = solvedWeight + unsolvedWeight + reviewWeight;
     const random = Math.random() * totalWeight;
-    if (solved.length > 0 && random > solvedWeight) {
-      let randomCard = solved[Math.floor(Math.random() * solved.length)];
-      randomCard = { ...randomCard, type: '(Solved)' };
-      setCard(randomCard);
-    } else if (unsolved.length > 0 && random > unsolvedWeight) {
+    if (unsolved.length > 0 && random > unsolvedWeight) {
       let randomCard = unsolved[Math.floor(Math.random() * unsolved.length)];
       randomCard = { ...randomCard, type: '(Unsolved)' };
       setCard(randomCard);
     } else if (review.length > 0 && random > reviewWeight) {
       let randomCard = review[Math.floor(Math.random() * review.length)];
-      randomCard = { ...randomCard, type: '(Reviewing)' };
+      randomCard = { ...randomCard, type: '(Review)' };
+      setCard(randomCard);
+    } else if (solved.length > 0 && random > solvedWeight) {
+      let randomCard = solved[Math.floor(Math.random() * solved.length)];
+      randomCard = { ...randomCard, type: '(Solved)' };
       setCard(randomCard);
     } else {
       getNewCard();
@@ -94,7 +108,6 @@ const Practice = () => {
           setError(err.response.data.message);
         });
     } else if (e.target.innerText === 'Unsolved') {
-      console.log(card);
       axios
         .post(`http://localhost:3001/api/v1/users/cards/${card._id}`, {
           cardType: 'unsolved',

@@ -25,7 +25,15 @@ const Card = (props) => {
                 {card && `${card.url}`}
               </li>
               <li className="card_key">Difficulty</li>
-              <li className="card_value">{card && card.difficulty}</li>
+              <li
+                className={
+                  card.difficulty
+                    ? `difficulty difficulty__${card.difficulty}`
+                    : 'difficulty'
+                }
+              >
+                {card && card.difficulty}
+              </li>
               <li className="card_key">Data Structure</li>
               <li className="card_value">{card && card.ds}</li>
             </ul>

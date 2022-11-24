@@ -233,6 +233,7 @@ body {
   color: #fff;
   font-weight: 500;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .card_key {
@@ -289,4 +290,34 @@ body {
 
 .card__actions button:hover {
   transform: scale(1.05);
+}
+
+.difficulty {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  padding: 0 !important;
+  margin-top: 0.75rem !important;
+  margin-bottom: 1rem !important;
+  width: 30% !important;
+  border-radius: 1rem;
+}
+
+.difficulty__Medium {
+  color: #fff !important;
+  border: 1px solid #f0c000 !important;
+  background-color: #f0c000;
+}
+
+.difficulty__Easy {
+  color: #fff !important;
+  border: 1px solid #2ecc71 !important;
+  background-color: #2ecc71;
+}
+
+.difficulty__Hard {
+  color: #fff !important;
+  border: 1px solid #e74c3c !important;
+  background-color: #e74c3c;
 }
