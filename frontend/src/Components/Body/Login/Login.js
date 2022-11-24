@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import axios from 'axios';
-import './login.css';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
@@ -18,6 +17,7 @@ const Login = () => {
         if (res.status.toString().startsWith('2')) {
           setError('');
           setSuccess(res.data.message);
+          window.location.reload();
         } else {
           setSuccess('');
           setError(res.data.message);

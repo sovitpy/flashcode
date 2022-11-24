@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './signup.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -19,6 +18,7 @@ const Signup = () => {
         if (res.status.toString().startsWith('2')) {
           setError('');
           setSuccess(res.data.message);
+          window.location.reload();
         } else {
           setSuccess('');
           setError(res.data.message);
