@@ -9,10 +9,8 @@ const UserCard = (props) => {
           <img src={userLogo} alt="user_logo" className="user__logo"></img>
           <div className="info">
             <ul className="infolist">
-              <span className="info">
-                <li className="key">Username</li>
-                <li className="value">{user && user.username}</li>
-              </span>
+              <li className="key">Username</li>
+              <li className="value">{user && user.username}</li>
               <li className="key">Solved Cards</li>
               <li className="value">
                 {user.solvedCards && user.solvedCards.length}

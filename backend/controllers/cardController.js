@@ -25,4 +25,25 @@ const createCard = asyncHandler(async (req, res, next) => {
   res.status(201).json(card);
 });
 
-export { getCards, getCard, createCard };
+const getRandomCard = asyncHandler(async (req, res, next) => {
+  const { solvedCards, unsolvedCards, reviewCards } = req.user;
+  const cards = await Card.find({
+    _id: {
+      $nin: [...solvedCards, ...unsolvedCards, ...reviewCards],
+    },
+  });
+  if (cards.length === 0) {
+    res.status(200).json({
+      status: 'warning',
+      message: 'No more cards left',
+    });
+  } else {
+    const randomCard = cards[Math.floor(Math.random() * cards.length)];
+    res.status(200).json({
+      status: 'success',
+      data: randomCard,
+    });
+  }
+});
+
+export { getCards, getCard, createCard, getRandomCard };

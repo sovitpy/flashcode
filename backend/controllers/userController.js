@@ -8,7 +8,7 @@ const getUserData = asyncHandler(async (req, res, next) => {
     .populate('unsolvedCards')
     .populate('reviewCards');
   if (user) {
-    res.json({
+    res.status(200).json({
       _id: user._id,
       username: user.username,
       solvedCards: user.solvedCards,

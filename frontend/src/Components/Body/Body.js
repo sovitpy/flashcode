@@ -8,6 +8,7 @@ import jwt_decode from 'jwt-decode';
 import Protected from './Protected';
 import Logout from './Logout';
 import Profile from './Profile/Profile';
+import Practice from './Practice/Practice';
 
 const Body = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,6 +41,14 @@ const Body = () => {
         element={
           <Protected isLoggedIn={isLoggedIn}>
             <Profile />
+          </Protected>
+        }
+      />
+      <Route
+        path="/practice"
+        element={
+          <Protected isLoggedIn={isLoggedIn}>
+            <Practice />
           </Protected>
         }
       />

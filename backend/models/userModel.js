@@ -27,15 +27,9 @@ const userSchema = new Schema(
         'Please enter a strong password with at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 symbol',
       ],
     },
-    solvedCards: [
-      { type: mongoose.Schema.Types.ObjectId, ref: 'cards', unique: true },
-    ],
-    unsolvedCards: [
-      { type: mongoose.Schema.Types.ObjectId, ref: 'cards', unique: true },
-    ],
-    reviewCards: [
-      { type: mongoose.Schema.Types.ObjectId, ref: 'cards', unique: true },
-    ],
+    solvedCards: [{ type: mongoose.Schema.Types.ObjectId, ref: 'cards' }],
+    unsolvedCards: [{ type: mongoose.Schema.Types.ObjectId, ref: 'cards' }],
+    reviewCards: [{ type: mongoose.Schema.Types.ObjectId, ref: 'cards' }],
   },
   {
     timestamps: true,
