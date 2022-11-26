@@ -8,9 +8,11 @@ const isAuthenticated = asyncHandler(async (req, res, next) => {
   const token = authorization && authorization.split(' ')[1];
 
   if (!token) {
-    throw new AppError(
-      'You are not logged in. Please login to access this route.',
-      401
+    next(
+      new AppError(
+        'You are not logged in. Please login to access this route.',
+        401
+      )
     );
   }
 
@@ -19,10 +21,12 @@ const isAuthenticated = asyncHandler(async (req, res, next) => {
     process.env.JWT_SECRET,
     async (err, decodedData) => {
       if (err) {
-        throw new AppError('Invalid token', 401);
+        next(new AppError('Invalid token', 401));
+        console.log('here!');
+      } else {
+        req.user = await User.findById(decodedData.id);
+        next();
       }
-      req.user = await User.findById(decodedData.id);
-      next();
     }
   );
 });
