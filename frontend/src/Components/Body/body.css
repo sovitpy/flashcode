@@ -162,6 +162,10 @@ body {
   padding: 0;
 }
 
+.user__logo img {
+  width: 100%;
+}
+
 .infolist {
   list-style: none;
   display: flex;
@@ -185,7 +189,7 @@ body {
 
 .infolist .value {
   font-weight: 200;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   margin-bottom: 1rem;
 }
 
@@ -293,7 +297,7 @@ body {
 }
 
 .difficulty {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #fff;
   font-weight: 200;
   letter-spacing: 0.5px;

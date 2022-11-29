@@ -6,7 +6,9 @@ const UserCard = (props) => {
         <p className="form__heading">USER PROFILE</p>
 
         <div className="userform">
-          <img src={userLogo} alt="user_logo" className="user__logo"></img>
+          <div className="user__logo">
+            <img src={userLogo} alt="user_logo"></img>
+          </div>
           <div className="info">
             <ul className="infolist">
               <li className="key">Username</li>
