@@ -325,3 +325,64 @@ body {
   border: 1px solid #e74c3c !important;
   background-color: #e74c3c;
 }
+
+.card__library {
+  margin: 5rem;
+}
+
+.card__library__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1rem 1.5rem;
+}
+
+.card__library__title {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+  flex: 90%;
+}
+
+.back__button {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #fff;
+  border: 1px solid #fff !important;
+  background-color: #1c2125;
+}
+
+.back__button:hover {
+  transform: scale(1.05);
+  background-color: #fff;
+  color: #1c2125;
+}
+
+.profile__cards {
+  max-height: 25rem;
+}
+
+.card__stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0rem 1.5rem;
+}
+
+.card__stats button {
+  font-size: 0.8rem;
+  font-weight: 200;
+  border: none;
+  padding-top: 0.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: #1c2125;
+  color: #3795ff;
+}

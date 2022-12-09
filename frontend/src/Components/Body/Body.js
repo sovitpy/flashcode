@@ -9,6 +9,7 @@ import Protected from './Protected';
 import Logout from './Logout';
 import Profile from './Profile/Profile';
 import Practice from './Practice/Practice';
+import CardLibrary from './Profile/CardLibrary';
 
 const Body = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
