@@ -13,7 +13,7 @@ const Signup = () => {
     e.preventDefault();
     const user = { username, email, password };
     axios
-      .post('http://localhost:3001/api/v1/users/signup', user)
+      .post('/api/v1/users/signup', user)
       .then((res) => {
         if (res.status.toString().startsWith('2')) {
           setError('');

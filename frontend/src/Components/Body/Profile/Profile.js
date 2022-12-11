@@ -16,7 +16,7 @@ const Profile = () => {
   const [showUnsolved, setShowUnsolved] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/v1/users/profile').then((res) => {
+    axios.get('/api/v1/users/profile').then((res) => {
       setUser(res.data);
     });
   }, []);

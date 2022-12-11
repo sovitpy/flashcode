@@ -10,6 +10,15 @@ const getCards = asyncHandler(async (req, res, next) => {
   });
 });
 
+const getCardNum = asyncHandler(async (req, res, next) => {
+  const cardNum = await Card.count();
+  console.log(cardNum);
+  res.status(200).json({
+    status: 'success',
+    data: cardNum,
+  });
+});
+
 const getCard = asyncHandler(async (req, res, next) => {
   const card = await Card.findById(req.params.id);
   if (card) {
@@ -46,4 +55,4 @@ const getRandomCard = asyncHandler(async (req, res, next) => {
   }
 });
 
-export { getCards, getCard, createCard, getRandomCard };
+export { getCards, getCard, createCard, getRandomCard, getCardNum };

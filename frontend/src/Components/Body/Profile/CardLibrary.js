@@ -2,6 +2,7 @@ import Card from './Card';
 import Loader from '../Loader/Loader';
 import { Grid } from '@mui/material';
 import backButton from '../../../images/back.svg';
+import { Fragment } from 'react';
 
 const CardLibrary = ({
   cards,
@@ -26,11 +27,13 @@ const CardLibrary = ({
       </div>
       <Grid
         container
-        spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 4, sm: 8, md: 12 }}
+        spacing={{ xs: 0, sm: 3, md: 4 }}
+        columns={{ xs: 4, sm: 12, md: 12 }}
       >
         {cards.map((card) => (
-          <Card key={card.id} card={card} />
+          <Grid item xs={12} sm={6} md={4} lg={3} key={card._id}>
+            <Card card={card} />
+          </Grid>
         ))}
       </Grid>
     </div>

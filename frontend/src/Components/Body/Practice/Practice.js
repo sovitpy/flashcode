@@ -15,14 +15,14 @@ const Practice = () => {
   ] = `Bearer ${localStorage.getItem('token')}`;
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/v1/users/profile').then((res) => {
+    axios.get('/api/v1/users/profile').then((res) => {
       setUser(res.data);
     });
   }, []);
 
   const getNewCard = () => {
     axios
-      .get('http://localhost:3001/api/v1/cards/random')
+      .get('/api/v1/cards/random')
       .then((res) => {
         if (res.data.status === 'warning') {
           setError(res.data.message);
@@ -90,7 +90,7 @@ const Practice = () => {
   const handleSubmit = (e, card) => {
     if (e.target.innerText === 'Solved') {
       axios
-        .post(`http://localhost:3001/api/v1/users/cards/${card._id}`, {
+        .post(`/api/v1/users/cards/${card._id}`, {
           cardType: 'solved',
         })
         .then((res) => {
@@ -109,7 +109,7 @@ const Practice = () => {
         });
     } else if (e.target.innerText === 'Unsolved') {
       axios
-        .post(`http://localhost:3001/api/v1/users/cards/${card._id}`, {
+        .post(`/api/v1/users/cards/${card._id}`, {
           cardType: 'unsolved',
         })
         .then((res) => {
@@ -128,7 +128,7 @@ const Practice = () => {
         });
     } else if (e.target.innerText === 'Review') {
       axios
-        .post(`http://localhost:3001/api/v1/users/cards/${card._id}`, {
+        .post(`/api/v1/users/cards/${card._id}`, {
           cardType: 'review',
         })
         .then((res) => {
@@ -146,7 +146,7 @@ const Practice = () => {
           setError(err.response.data.message);
         });
     }
-    axios.get('http://localhost:3001/api/v1/users/profile').then((res) => {
+    axios.get('/api/v1/users/profile').then((res) => {
       setUser(res.data);
     });
   };
